@@ -1,10 +1,10 @@
 
 let glossary = {};
 
-fetch('glossary.js')
-  .then(response => response.text())
-  .then(jsCode => {
-    eval(jsCode); // this defines the glossary object
+fetch('glossary.json')
+  .then(response => response.json())
+  .then(data => {
+    glossary = data;
   });
 
 function decodeTerm() {
