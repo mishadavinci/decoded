@@ -1,7 +1,7 @@
 
 let glossary = {};
 
-fetch('glossary.json')
+fetch('glossary-v2.json')
   .then(response => response.json())
   .then(data => {
     glossary = data;
