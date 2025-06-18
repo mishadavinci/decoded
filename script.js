@@ -1,26 +1,11 @@
 
-const glossary = {
-  "AGI": {
-    definition: "Artificial General Intelligence — an AI that can learn anything a human can. Not just good at one task, but *all* of them.",
-    why: "It’s the holy grail of AI — and also what scares people the most.",
-    misha: "AGI isn’t just tech. It’s a mirror. What kind of intelligence do we want to reflect?"
-  },
-  "LLM": {
-    definition: "Large Language Model — a machine trained on *massive* amounts of text to predict the next word, and the next… like a super autocomplete.",
-    why: "LLMs power ChatGPT, Gemini, Claude — they’re the brains behind the bots.",
-    misha: "They don’t think. They predict. But prediction is powerful when you wrap it in a human voice."
-  },
-  "zk-rollup": {
-    definition: "Zero-Knowledge Rollup — a way to bundle many blockchain transactions and prove they’re valid *without revealing* all the details.",
-    why: "It makes blockchains faster and more private at the same time.",
-    misha: "Proof without exposure — this is privacy as performance art."
-  },
-  "middleware": {
-    definition: "Software that connects two other things — like glue between your app and a database.",
-    why: "Invisible, but essential. It makes systems talk to each other.",
-    misha: "Middleware is like stage crew. Without it, the show doesn’t run — even if no one claps for it."
-  }
-};
+let glossary = {};
+
+fetch('glossary.js')
+  .then(response => response.text())
+  .then(jsCode => {
+    eval(jsCode); // this defines the glossary object
+  });
 
 function decodeTerm() {
   const input = document.getElementById("searchInput").value.trim().toLowerCase();
