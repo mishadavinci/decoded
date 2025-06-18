@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Decoded</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: #f5f2ec;
+      color: #2a2a2a;
+      margin: 0;
+      padding: 2rem;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    input {
+      padding: 0.7rem;
+      width: 60%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    button {
+      padding: 0.7rem 1.2rem;
+      margin-left: 1rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+    }
+    .output {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      background-color: #fff;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .term {
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .not-found {
+      font-style: italic;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔍 Decoded</h1>
+  <p>Enter a buzzword you’re pretending to understand...</p>
+  <input type="text" id="searchInput" placeholder="e.g., AGI, zk-rollup, LLM">
+  <button onclick="decodeTerm()">Decode it</button>
+
+  <div class="output" id="outputArea"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
