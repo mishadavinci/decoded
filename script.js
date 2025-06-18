@@ -1,5 +1,5 @@
-
 let glossary = {};
+let glossaryReady = false;
 
 fetch('glossary-v2.json')
   .then(response => response.json())
@@ -11,6 +11,7 @@ fetch('glossary-v2.json')
         misha: entry.misha
       };
     });
+    glossaryReady = true;
   });
 
 function decodeTerm() {
@@ -18,7 +19,12 @@ function decodeTerm() {
   const output = document.getElementById("outputArea");
   output.innerHTML = "";
 
-  const termKey = Object.keys(glossary).find(key => key.toLowerCase() === input);
+  if (!glossaryReady) {
+    output.innerHTML = `<p class="not-found">Decoder is still loading. Please wait a moment...</p>`;
+    return;
+  }
+
+  const termKey = Object.keys(glossary).find(key => key === input);
 
   if (termKey) {
     const entry = glossary[termKey];
