@@ -4,7 +4,13 @@ let glossary = {};
 fetch('glossary-v2.json')
   .then(response => response.json())
   .then(data => {
-    glossary = data;
+    data.forEach(entry => {
+      glossary[entry.term.toLowerCase()] = {
+        definition: entry.definition,
+        why: entry.why,
+        misha: entry.misha
+      };
+    });
   });
 
 function decodeTerm() {
